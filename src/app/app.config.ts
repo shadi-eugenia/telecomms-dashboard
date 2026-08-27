@@ -16,7 +16,6 @@ export const appConfig: ApplicationConfig = {
         MockApiService,
         {
           dataEncapsulation: false,
-          delay: 300, // Simulate network latency
           passThruUnknownUrl: true
         }
       )

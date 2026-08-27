@@ -23,7 +23,6 @@ import { WorkOrder } from '../../../core/models/work-order.model';
 })
 export class TableComponent {
 
-  private workOrdersSignal = signal<WorkOrder[]>([]);
   workOrders = input<WorkOrder[]>([]);
 
   onEdit = output<WorkOrder>();
@@ -77,13 +76,6 @@ applyFilter(event: Event): void {
     this.dataSource._updateChangeSubscription();
   }
 }
-
-    clearFilter(input: HTMLInputElement): void {
-    this.filterValueSignal.set('');
-    input.value = '';
-    this.dataSource.filter = '';
-    input.focus();
-  }
   
   isOverdue(slaDueAt: string): boolean {
     return new Date(slaDueAt) < new Date();
