@@ -1,4 +1,4 @@
-import { Component, computed, Input, signal } from '@angular/core';
+import { Component, computed, input, Input, signal } from '@angular/core';
 import { WorkOrder } from '../../../core/models/work-order.model';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
@@ -10,18 +10,10 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './summary-cards-component.scss',
 })
 export class SummaryCardsComponent {
+  readonly workOrders = input<WorkOrder[]>([]);
 
-    @Input({ required: true }) set workOrders(value: WorkOrder[]) {
-    this.workOrdersSignal.set(value);
-  }
-
-  // Use signals for reactivity
-  private workOrdersSignal = signal<WorkOrder[]>([]);
-  readonly workOrderValue = this.workOrdersSignal.asReadonly();
-
-  // Computed signals
   regionCounts = computed(() => {
-    const orders = this.workOrdersSignal();
+    const orders = this.workOrders();
     return orders.reduce((acc, order) => {
       acc[order.region] = (acc[order.region] || 0) + 1;
       return acc;
@@ -29,7 +21,7 @@ export class SummaryCardsComponent {
   });
 
   statusCounts = computed(() => {
-    const orders = this.workOrdersSignal();
+    const orders = this.workOrders();
     return orders.reduce((acc, order) => {
       acc[order.status] = (acc[order.status] || 0) + 1;
       return acc;

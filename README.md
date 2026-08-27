@@ -2,6 +2,47 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.34.
 
+## Context
+
+This project was built as a take-home assignment for a telecommunications platform. The requirements focused on:
+- Displaying ~500 work orders in a responsive table
+- Supporting status updates with local REST integration
+- Unit testing with Angular's test runner
+
+## Features
+- Dashboard: Displays ~500 work orders with status, region and overall summary cards
+- Realtime filter: You can filter by owner or site
+- Status Update: Modal dialog with form validation
+- Delete confirmation: Material Dialog with confirmation
+
+
+## Project Structure 
+src/
+├── app/
+│   ├── core/
+│   │   ├── models/
+│   │   │   ├── work-order.model.ts
+│   │   │   └── dialog.models.ts
+│   │   └── services/
+│   │       ├── mock-api.service.ts
+│   │       └── work-order.service.ts
+│   └── features/
+│       └── work-orders/
+│           └── components/
+│               ├── confirm-dialog/
+│               ├── status-update-dialog/
+│               ├── summary-cards/
+│               ├── work-order-table/
+│               └── work-order-dashboard/
+└── styles.scss
+
+## Quick Start
+
+```bash 
+
+# Install dependencies
+npm install
+
 ## Development server
 
 To start a local development server, run:

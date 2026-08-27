@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, EventEmitter, Input, Output, signal, ViewChild } from '@angular/core';
+import { Component, computed, EventEmitter, input, Input, output, Output, signal, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -24,16 +24,10 @@ import { WorkOrder } from '../../../core/models/work-order.model';
 export class TableComponent {
 
   private workOrdersSignal = signal<WorkOrder[]>([]);
-  @Input({ required: true }) set workOrders(value: WorkOrder[]) {
-    this.workOrdersSignal.set(value);
-    this.dataSource.data = value; // Update table data
-        
-    if (this.filterValue()) {
-      this.dataSource.filter = this.filterValue().trim().toLowerCase();
-    }
-  }
-  @Output() onEdit = new EventEmitter<WorkOrder>();
-  @Output() onDelete = new EventEmitter<string>();
+  workOrders = input<WorkOrder[]>([]);
+
+  onEdit = output<WorkOrder>();
+  onDelete = output<string>();
 
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -41,15 +35,11 @@ export class TableComponent {
   displayedColumns: string[] = ['id', 'site', 'region', 'status', 'priority',
     'owner', 'slaDueAt', 'progressPct', 'actions'];
 
-  trackByFn(index: number, item: WorkOrder): string {
-    return item.id;
-  }
-
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.setupFilter();
   }
-  
+
   private filterValueSignal = signal<string>('');
   filterValue = this.filterValueSignal.asReadonly();
 

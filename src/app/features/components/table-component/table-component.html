@@ -23,7 +23,7 @@
 
   <!-- Table -->
   <div class="mat-elevation-z8 table-wrapper">
-    <table mat-table [dataSource]="dataSource" matSort>
+    <table mat-table [dataSource]="workOrders()" matSort>
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
