@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, EventEmitter, input, Input, output, Output, signal, ViewChild } from '@angular/core';
+import { Component, computed, effect, EventEmitter, input, Input, output, Output, signal, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -34,6 +34,19 @@ export class TableComponent {
   dataSource = new MatTableDataSource<WorkOrder>([]);
   displayedColumns: string[] = ['id', 'site', 'region', 'status', 'priority',
     'owner', 'slaDueAt', 'progressPct', 'actions'];
+
+  constructor() {
+    effect(() => {
+      const orders = this.workOrders() || [];
+      const currentFilter = this.filterValue();
+      
+      this.dataSource.data = orders;
+      
+      if (currentFilter) {
+        this.dataSource.filter = currentFilter.trim().toLowerCase();
+      }
+    });
+  }
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
