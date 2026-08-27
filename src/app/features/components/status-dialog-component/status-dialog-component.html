@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Update Status</h2>
+<mat-dialog-content>
+  <form [formGroup]="statusForm">
+    <div class="order-info">
+      <p><strong>Order:</strong> {{ data.workOrder.id }}</p>
+      <p><strong>Site:</strong> {{ data.workOrder.site }}</p>
+      <p><strong>Current Status:</strong>
+        <span class="current-status">{{ data.workOrder.status }}</span>
+      </p>
+    </div>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>New Status</mat-label>
+      <mat-select formControlName="status">
+        @for (status of statusOptions; track status) {
+          <mat-option [value]="status">{{ status }}</mat-option>
+        }
+      </mat-select>
+      @if (statusForm.get('status')?.hasError('required')) {
+        <mat-error>Status is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Note / Reason (optional)</mat-label>
+      <input matInput formControlName="note" placeholder="Add a note about this status change...">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary"
+          (click)="onSubmit()"
+          [disabled]="statusForm.invalid || !statusForm.dirty">
+    Update Status
+  </button>
+</mat-dialog-actions>
+

@@ -1,0 +1,29 @@
+<div class="dashboard">
+  <div class="header">
+    <h1>Work Order Dashboard</h1>
+    <div class="header-actions">
+      <button mat-raised-button color="primary" (click)="loadWorkOrders()" [disabled]="loading()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  @if (loading()) {
+    <div class="loading-container">
+      <mat-spinner diameter="40"></mat-spinner>
+      <p>Loading work orders...</p>
+    </div>
+  } @else {
+    <!-- Content -->
+    <app-summary-cards-component [data]="workOrders()">
+    </app-summary-cards-component>
+
+    <app-table-component
+      [workOrders]="workOrders()"
+      (onEdit)="handleEdit($event)"
+      (onDelete)="handleDelete($event)">
+    </app-table-component>
+  }
+</div>
+

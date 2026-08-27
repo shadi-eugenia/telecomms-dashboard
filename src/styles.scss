@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+// ✅ USE PRE-BUILT THEME - Guaranteed to work
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f5f7fa;
+}
+
+// Snackbar styles
+.success-snackbar .mdc-snackbar__surface {
+  background-color: #4CAF50 !important;
+}
+
+.success-snackbar .mdc-snackbar__label {
+  color: white !important;
+}
+
+.error-snackbar .mdc-snackbar__surface {
+  background-color: #F44336 !important;
+}
+
+.error-snackbar .mdc-snackbar__label {
+  color: white !important;
+}

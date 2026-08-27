@@ -1,0 +1,182 @@
+.table-container {
+  margin-top: 16px;
+}
+
+.filter-container {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  
+  .mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    color: #666;
+  }
+}
+
+.search-icon {
+  position: relative;
+  left: 12px;
+  color: #999;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 280px;
+  max-width: 280px;
+  padding: 10px 40px 10px 16px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  color: #333;
+  
+  &:focus {
+    border-color: #1976D2;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+  }
+  
+  &::placeholder {
+    color: #999;
+  }
+}
+
+
+.filter-info {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.table-wrapper {
+  overflow: auto;
+  max-height: 600px;
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+}
+
+.region-amer { 
+  color: #2196F3; 
+  font-weight: 600; 
+}
+
+.region-emea { 
+  color: #FF9800; 
+  font-weight: 600; 
+}
+
+.region-apac { 
+  color: #4CAF50; 
+  font-weight: 600; 
+}
+
+.status-new { 
+  color: #9E9E9E; 
+  font-weight: 500; 
+}
+
+.status-planned { 
+  color: #2196F3; 
+  font-weight: 500; 
+}
+
+.status-in-progress { 
+  color: #FF9800; 
+  font-weight: 500; 
+}
+
+.status-blocked { 
+  color: #F44336; 
+  font-weight: 600; 
+}
+
+.status-done { 
+  color: #4CAF50; 
+  font-weight: 600; 
+}
+
+.priority-1 { 
+  color: #4CAF50; 
+  font-weight: 600; 
+}
+
+.priority-2 { 
+  color: #8BC34A; 
+  font-weight: 500; 
+}
+
+.priority-3 { 
+  color: #FFC107; 
+  font-weight: 500; 
+}
+
+.priority-4 { 
+  color: #FF9800; 
+  font-weight: 600; 
+}
+
+.priority-5 { 
+  color: #F44336; 
+  font-weight: 700; 
+}
+
+.overdue { 
+  color: #F44336; 
+  font-weight: 600; 
+}
+
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 80px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background: #4CAF50;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  min-width: 20px;
+}
+
+.progress-text {
+  font-size: 12px;
+  font-weight: 500;
+  min-width: 30px;
+  color: #333;
+}

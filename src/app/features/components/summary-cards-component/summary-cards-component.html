@@ -1,0 +1,61 @@
+<div class="summary-container">
+  <!-- Status Breakdown Card -->
+  <mat-card class="summary-card">
+    <mat-card-header>
+      <mat-card-title>Status Breakdown</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @for (item of statusCounts() | keyvalue; track item.key) {
+        <div class="status-item">
+          <span class="status-label">{{ item.key }}</span>
+          <span class="status-count">{{ item.value }}</span>
+        </div>
+      } @empty {
+        <p>No data available</p>
+      }
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Region Distribution Card -->
+  <mat-card class="summary-card">
+    <mat-card-header>
+      <mat-card-title>Region Distribution</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @for (item of regionCounts() | keyvalue; track item.key) {
+        <div class="region-item">
+              <span class="region-label" [class]="'region-' + item.key.toLowerCase()">
+                {{ item.key }}
+              </span>
+          <span class="region-count">{{ item.value }}</span>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Overall Metrics Card -->
+  <mat-card class="summary-card">
+    <mat-card-header>
+      <mat-card-title>Overall Metrics</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="metric-item">
+        <span class="metric-label">Total Orders</span>
+        <span class="metric-value">{{ workOrderValue().length }}</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-label">In Progress</span>
+        <span class="metric-value">{{ getCountByStatus('In Progress') }}</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-label">Blocked</span>
+        <span class="metric-value" style="color: #F44336;">{{ getCountByStatus('Blocked') }}</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-label">Completed</span>
+        <span class="metric-value" style="color: #4CAF50;">{{ getCountByStatus('Done') }}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+

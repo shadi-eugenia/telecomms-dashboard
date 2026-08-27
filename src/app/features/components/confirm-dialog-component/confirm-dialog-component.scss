@@ -1,0 +1,35 @@
+    mat-dialog-content {
+      min-width: 350px;
+      padding: 16px 24px 8px 24px;
+    }
+    mat-dialog-content p {
+      margin: 8px 0;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #333;
+      white-space: pre-line;
+    }
+    mat-dialog-actions {
+      padding: 16px 24px 24px 24px !important;
+      margin: 0 !important;
+      gap: 12px;
+    }
+    .dialog-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .cancel-btn {
+      padding: 6px 20px;
+      font-weight: 500;
+    }
+    .confirm-btn {
+      padding: 6px 24px;
+      font-weight: 500;
+    }
+    mat-dialog-title {
+      padding: 20px 24px 8px 24px;
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: #333;
+    }

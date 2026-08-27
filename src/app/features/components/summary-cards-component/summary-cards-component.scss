@@ -1,0 +1,28 @@
+.summary-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.summary-card {
+  padding: 8px;
+}
+.summary-card mat-card-content {
+  margin-top: 8px;
+}
+.status-item, .region-item, .metric-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.status-item:last-child, .region-item:last-child, .metric-item:last-child {
+  border-bottom: none;
+}
+.status-label, .region-label, .metric-label {
+  font-weight: 500;
+  color: #555;
+}
+.status-count, .region-count, .metric-value {
+  font-weight: 600;
+}
