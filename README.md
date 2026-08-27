@@ -17,6 +17,7 @@ This project was built as a take-home assignment for a telecommunications platfo
 
 
 ## Project Structure 
+```bash
 src/
 ├── app/
 │   ├── core/
@@ -35,6 +36,7 @@ src/
 │               ├── work-order-table/
 │               └── work-order-dashboard/
 └── styles.scss
+```
 
 ## Quick Start
 
