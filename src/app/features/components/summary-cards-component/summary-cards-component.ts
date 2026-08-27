@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 export class SummaryCardsComponent {
   readonly workOrders = input<WorkOrder[]>([]);
 
+
   regionCounts = computed(() => {
     const orders = this.workOrders();
     return orders.reduce((acc, order) => {

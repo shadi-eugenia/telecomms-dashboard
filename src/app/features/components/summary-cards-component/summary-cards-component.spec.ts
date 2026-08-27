@@ -78,8 +78,7 @@ describe('SummaryCardsComponent', () => {
   });
 
   it('should correctly calculate region counts', () => {
-    // Arrange
-    component.workOrders = mockWorkOrders;
+    fixture.componentRef.setInput('workOrders', mockWorkOrders);
 
     fixture.detectChanges();
 
@@ -91,7 +90,7 @@ describe('SummaryCardsComponent', () => {
 
   it('should correctly calculate status counts', () => {
     // Arrange
-    component.workOrders = mockWorkOrders;
+    fixture.componentRef.setInput('workOrders', mockWorkOrders);
 
     fixture.detectChanges();
 
@@ -104,7 +103,7 @@ describe('SummaryCardsComponent', () => {
 
   it('should return correct count for a specific status using getCountByStatus', () => {
     // Arrange
-    component.workOrders = mockWorkOrders;
+    fixture.componentRef.setInput('workOrders', mockWorkOrders);
 
     fixture.detectChanges();
 
@@ -117,7 +116,7 @@ describe('SummaryCardsComponent', () => {
 
     it('should handle empty work orders list', () => {
     // Arrange
-    component.workOrders = [];
+    fixture.componentRef.setInput('workOrders', []);
     fixture.detectChanges();
 
     // Assert
@@ -127,12 +126,12 @@ describe('SummaryCardsComponent', () => {
   });
 
   it('should update metrics when work orders change', () => {
-    component.workOrders = mockWorkOrders.slice(0, 3);
+    fixture.componentRef.setInput('workOrders', mockWorkOrders.slice(0, 3));
     fixture.detectChanges();
 
     expect(component.getCountByStatus('New')).toBe(1);
 
-    component.workOrders = mockWorkOrders;
+    fixture.componentRef.setInput('workOrders', mockWorkOrders);
     fixture.detectChanges();
 
     expect(component.getCountByStatus('New')).toBe(2);
